@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Product Details - JP Gems</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/main-style.css" />
+  <link rel="stylesheet" href="../css/itemdetails.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <a href="../index.html" class="logo-link">
+      <div class="logo">
+        <img src="../images/lg.png" alt="JpGems Logo" class="logo-image">
+      </div>
+    </a>
+    <nav>
+      <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#gemstones-section">Gemstones</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <!-- Theme Toggle -->
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </div>
+      <i class="fas fa-shopping-cart"></i>
+      <div class="profile-dropdown">
+        <i class="fas fa-user" id="profileIcon"></i>
+        <div class="dropdown-menu" id="profileDropdown">
+          <div class="dropdown-header">
+            <h4>Welcome!</h4>
+            <p>Please login to access your account</p>
+          </div>
+          <div class="dropdown-actions">
+            <button class="btn-login" onclick="window.location.href='../login.html'">Login</button>
+            <button class="btn-signup" onclick="window.location.href='../signup.html'">Sign Up</button>
+          </div>
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-items">
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-box"></i>
+              <span>My Orders</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-coins"></i>
+              <span>My Coins</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-envelope"></i>
+              <span>Message Center</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-credit-card"></i>
+              <span>Payment</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-heart"></i>
+              <span>Wish List</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-ticket-alt"></i>
+              <span>My Coupons</span>
+            </a>
+          </div>
+          <a href="#" class="dropdown-item logout" onclick="handleLogout(event)">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="product-page">
+    <section class="left-col">
+      <div class="thumb-column" id="thumbColumn">
+        <!-- thumbnails (5 images + 1 video thumbnail) inserted by JS -->
+      </div>
+      
+      <div class="media-viewer">
+        <button class="nav-arrow left-arrow" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+
+        <div class="media-stage">
+          <!-- main displayed media (img/video) filled from JS -->
+        </div>
+
+        <button class="nav-arrow right-arrow" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <section class="right-col">
+      <h1 id="productName">Premium Blue Sapphire Collection</h1>
+      <div class="stock" id="stockCount">In stock: <span>12</span></div>
+      <div class="price-row">
+        <div class="price" id="priceValue">$1,250.00</div>
+        <div class="old-price" id="oldPrice">$1,500.00</div>
+      </div>
+
+      <div class="shipping-panel">
+        <label for="countrySelect">Ship to:</label>
+        <select id="countrySelect" aria-label="Select country">
+          <option value="US">United States</option>
+          <option value="GB">United Kingdom</option>
+          <option value="AU">Australia</option>
+          <option value="DE">Germany</option>
+          <option value="LK" selected>Sri Lanka</option>
+          <option value="IN">India</option>
+          <option value="JP">Japan</option>
+          <option value="CA">Canada</option>
+        </select>
+
+        <div class="shipping-breakdown">
+          <div>Shipping: <strong id="shippingCostText">—</strong></div>
+          <div>Tax (incl.): <strong id="taxText">—</strong></div>
+          <div>Total: <strong id="totalText">—</strong></div>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button id="buyNowBtn" class="primary-btn"><i class="fa-solid fa-bolt"></i> Buy It Now</button>
+        <button id="addToCartBtn" class="secondary-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+      </div>
+
+      <div id="sellerContact" class="seller-contact hidden" aria-hidden="true">
+        <h3>Seller Contact</h3>
+        <p><i class="fa-solid fa-user"></i> <strong>JP Gems Sri Lanka</strong></p>
+        <p><i class="fa-solid fa-phone"></i> +94 77 456 7890</p>
+        <p><i class="fa-solid fa-envelope"></i> info@jpgems.lk</p>
+        <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/94774567890" target="_blank" rel="noopener">Message on WhatsApp</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Below Sections -->
+  <section class="below-sections">
+    <!-- Product Specifications Table -->
+    <article class="specifications">
+      <h2><i class="fa-solid fa-table"></i> Product Specifications</h2>
+      <div class="spec-table-container">
+        <table class="spec-table">
+          <tbody>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-gem"></i>
+                <span>Gemstone Type</span>
+              </td>
+              <td class="spec-value">Natural Blue Sapphire</td>
+            </tr>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-weight-hanging"></i>
+                <span>Carat Weight</span>
+              </td>
+              <td class="spec-value">4.5 carats (approx.)</td>
+            </tr>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-ruler"></i>
+                <span>Dimensions</span>
+              </td>
+              <td class="spec-value">8mm x 6mm</td>
+            </tr>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-circle"></i>
+                <span>Shape</span>
+              </td>
+              <td class="spec-value">Oval Cut</td>
+            </tr>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-palette"></i>
+                <span>Color</span>
+              </td>
+              <td class="spec-value">Deep Ocean Blue</td>
+            </tr>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-eye"></i>
+                <span>Clarity</span>
+              </td>
+              <td class="spec-value">VS1 (Very Slightly Included)</td>
+            </tr>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-ring"></i>
+                <span>Setting Material</span>
+              </td>
+              <td class="spec-value">18k White Gold</td>
+            </tr>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-expand-arrows-alt"></i>
+                <span>Ring Size</span>
+              </td>
+              <td class="spec-value">Adjustable (Size 6-8)</td>
+            </tr>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-certificate"></i>
+                <span>Certification</span>
+              </td>
+              <td class="spec-value">GIA Certified</td>
+            </tr>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-globe"></i>
+                <span>Origin</span>
+              </td>
+              <td class="spec-value">Sri Lanka (Ceylon)</td>
+            </tr>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-tools"></i>
+                <span>Treatment</span>
+              </td>
+              <td class="spec-value">Heat Treated (Standard)</td>
+            </tr>
+            <tr>
+              <td class="spec-label">
+                <i class="fa-solid fa-shield-alt"></i>
+                <span>Warranty</span>
+              </td>
+              <td class="spec-value">1 Year International Warranty</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- Product Description Section -->
+    <article class="description">
+      <h2>Product Description</h2>
+      <p id="productDescriptionBelow">
+        This Ocean Blue Sapphire Ring features a premium AAA-grade sapphire set in 18k white gold.
+        Carefully sourced and certified for authenticity. Dimensions: 8mm x 6mm. Weight: 4.5 carats approx.
+      </p>
+
+      <ul class="specs">
+        <li>Material: 18k White Gold</li>
+        <li>Stone: Natural Sapphire</li>
+        <li>Certification: International Gemological Certificate</li>
+        <li>Return: 14 days (conditions apply)</li>
+      </ul>
+    </article>
+
+    <!-- Customer Reviews & Feedback Section -->
+    <article class="feedback-section">
+      <h2><i class="fa-solid fa-star"></i> Customer Reviews & Feedback</h2>
+      
+      <!-- Rating Overview -->
+      <div class="feedback-overview">
+        <div class="rating-summary">
+          <div class="avg-rating">4.8</div>
+          <div class="stars-display">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="total-reviews">Based on 24 reviews</div>
+        </div>
+        
+        <div class="rating-breakdown">
+          <div class="rating-bar">
+            <span>5 star</span>
+            <div class="bar"><div class="fill" style="width: 75%"></div></div>
+            <span>18</span>
+          </div>
+          <div class="rating-bar">
+            <span>4 star</span>
+            <div class="bar"><div class="fill" style="width: 20%"></div></div>
+            <span>5</span>
+          </div>
+          <div class="rating-bar">
+            <span>3 star</span>
+            <div class="bar"><div class="fill" style="width: 5%"></div></div>
+            <span>1</span>
+          </div>
+          <div class="rating-bar">
+            <span>2 star</span>
+            <div class="bar"><div class="fill" style="width: 0%"></div></div>
+            <span>0</span>
+          </div>
+          <div class="rating-bar">
+            <span>1 star</span>
+            <div class="bar"><div class="fill" style="width: 0%"></div></div>
+            <span>0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews List -->
+      <div class="reviews-list">
+        <h3><i class="fa-solid fa-comments"></i> Customer Reviews</h3>
+        
+        <div class="review-item">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">S</div>
+              <div class="reviewer-details">
+                <h4>Sarah Johnson</h4>
+                <div class="review-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="review-date">2 days ago</span>
+              </div>
+            </div>
+            <div class="review-title">Absolutely Stunning!</div>
+          </div>
+          <div class="review-content">
+            <p>This sapphire ring exceeded all my expectations! The color is magnificent and the craftsmanship is top-notch. The certificate provided gives great peace of mind. Shipping was fast and packaging was secure. Highly recommend this seller!</p>
+            <div class="review-helpful">
+              <button class="helpful-btn"><i class="fa-solid fa-thumbs-up"></i> Helpful (12)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-item">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">M</div>
+              <div class="reviewer-details">
+                <h4>Michael Chen</h4>
+                <div class="review-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+                <span class="review-date">1 week ago</span>
+              </div>
+            </div>
+            <div class="review-title">Great Quality</div>
+          </div>
+          <div class="review-content">
+            <p>Beautiful piece exactly as described. The gemstone is genuine and the setting is well-made. Only minor issue was delivery took a bit longer than expected, but worth the wait!</p>
+            <div class="review-helpful">
+              <button class="helpful-btn"><i class="fa-solid fa-thumbs-up"></i> Helpful (8)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-item">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">E</div>
+              <div class="reviewer-details">
+                <h4>Emma Wilson</h4>
+                <div class="review-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="review-date">2 weeks ago</span>
+              </div>
+            </div>
+            <div class="review-title">Perfect for Engagement!</div>
+          </div>
+          <div class="review-content">
+            <p>Bought this for my fiancé and she absolutely loves it! The blue sapphire is gorgeous and the white gold setting is elegant. Great customer service too. Will definitely buy from this seller again.</p>
+            <div class="review-helpful">
+              <button class="helpful-btn"><i class="fa-solid fa-thumbs-up"></i> Helpful (15)</button>
+            </div>
+          </div>
+        </div>
+        
+        <button class="load-more-reviews">
+          <i class="fa-solid fa-chevron-down"></i> Load More Reviews
+        </button>
+      </div>
+    </article>
+  </section>
+
+  <!-- Zoom modal -->
+  <div id="zoomModal" class="zoom-modal hidden" aria-hidden="true">
+    <div class="zoom-content">
+      <button class="close-zoom" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="zoom-media"></div>
+    </div>
+  </div>
+
+<!-- Footer -->
+<footer>
+  <!-- Footer Top Bar -->
+  <div class="footer-top-bar">
+    <div class="footer-top-content">
+      <div class="footer-brand">
+        <h2>JP Gems</h2>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><img src="images/fb.png" alt="Facebook"></a>
+        <a href="#" class="social-icon"><img src="images/ins.jpg" alt="Instagram"></a>
+        <a href="#" class="social-icon"><img src="images/whatsapp.jpg" alt="WhatsApp"></a>
+        <a href="#" class="social-icon"><img src="images/youtube.png" alt="YouTube"></a>
+        <a href="#" class="social-icon"><img src="images/tiktok.png" alt="TikTok"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-sections-row">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Gemstones</h3>
+        <ul>
+          <li><a href="html/blue-sapphires.html">Blue Sapphires</a></li>
+          <li><a href="html/ruby.html">Ruby</a></li>
+          <li><a href="html/emerald.html">Emerald</a></li>
+          <li><a href="html/diamonds.html">Diamonds</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul class="contact-info">
+          <li><i class="fas fa-phone"></i> +94 77 123 4567</li>
+          <li><a href="mailto:info@jpgems.lk"><i class="fas fa-envelope"></i> info@jpgems.lk</a></li>
+          <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+        </ul>
+      </div>
+      
+      <div class="footer-logo-section">
+        <img src="images/lg.png" alt="JP Gems Logo">
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2025 JP Gems. All rights reserved.</p>
+  </div>
+</footer>
+
+
+  <script src="../js/itemdetails.js"></script>
+  <script src="../js/main-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garnet Collection - JP Gems</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="../css/main-style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <a href="../index.html" class="logo-link">
+    <div class="logo">
+      <img src="../images/lg.png" alt="JpGems Logo" class="logo-image">
+    </div>
+  </a>
+  <nav>
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#gemstones-section">Gemstones</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+  <div class="header-icons">
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+    <i class="fas fa-shopping-cart"></i>
+    <div class="profile-dropdown">
+      <i class="fas fa-user" id="profileIcon"></i>
+      <div class="dropdown-menu" id="profileDropdown">
+        <div class="dropdown-header">
+          <h4>Welcome!</h4>
+          <p>Please login to access your account</p>
+        </div>
+        <div class="dropdown-actions">
+          <button class="btn-login" onclick="window.location.href='../login.html'">Login</button>
+          <button class="btn-signup" onclick="window.location.href='../signup.html'">Sign Up</button>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-items">
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-box"></i>
+            <span>My Orders</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-coins"></i>
+            <span>My Coins</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope"></i>
+            <span>Message Center</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-credit-card"></i>
+            <span>Payment</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-heart"></i>
+            <span>Wish List</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-ticket-alt"></i>
+            <span>My Coupons</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+        
+
+<!-- Hero Section for Category -->
+<section class="hero" style="height: 50vh;">
+  <img src="../images/slide1.jpg" class="active" alt="Garnet">
+</section>
+
+<!-- Products Section -->
+<section class="products" style="display: block;">
+  <h2>Garnet Collection</h2>
+  <div class="product-grid" id="productGrid">
+    <!-- Sample Garnet Products -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="../images/img1.jpg" alt="Red Garnet Stone" class="main-image">
+        <div class="product-overlay">
+          <div class="product-actions">
+            <button class="action-btn view-btn" onclick="viewProduct('garnet-1')">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="action-btn wishlist-btn">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="action-btn cart-btn">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Premium Red Garnet</h3>
+        <p class="product-description">Natural red garnet with excellent clarity</p>
+        <div class="product-specs">
+          <span class="spec">5.2 Carats</span>
+          <span class="spec">Heat Treated</span>
+        </div>
+        <div class="product-price">
+          <span class="current-price">Rs. 45,000</span>
+          <span class="original-price">Rs. 55,000</span>
+        </div>
+        <div class="product-rating">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <span class="rating-text">4.5 (24 reviews)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="../images/img2.jpg" alt="Orange Garnet Stone" class="main-image">
+        <div class="product-overlay">
+          <div class="product-actions">
+            <button class="action-btn view-btn" onclick="viewProduct('garnet-2')">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="action-btn wishlist-btn">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="action-btn cart-btn">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Orange Spessartine Garnet</h3>
+        <p class="product-description">Rare orange garnet with vibrant color</p>
+        <div class="product-specs">
+          <span class="spec">3.8 Carats</span>
+          <span class="spec">Natural</span>
+        </div>
+        <div class="product-price">
+          <span class="current-price">Rs. 65,000</span>
+          <span class="original-price">Rs. 75,000</span>
+        </div>
+        <div class="product-rating">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <span class="rating-text">5.0 (18 reviews)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="../images/img3.jpg" alt="Pyrope Garnet Stone" class="main-image">
+        <div class="product-overlay">
+          <div class="product-actions">
+            <button class="action-btn view-btn" onclick="viewProduct('garnet-3')">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="action-btn wishlist-btn">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="action-btn cart-btn">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Deep Red Pyrope Garnet</h3>
+        <p class="product-description">Deep red pyrope with exceptional fire</p>
+        <div class="product-specs">
+          <span class="spec">6.1 Carats</span>
+          <span class="spec">Unheated</span>
+        </div>
+        <div class="product-price">
+          <span class="current-price">Rs. 55,000</span>
+          <span class="original-price">Rs. 68,000</span>
+        </div>
+        <div class="product-rating">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <span class="rating-text">4.7 (31 reviews)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="../images/img4.jpg" alt="Almandine Garnet Stone" class="main-image">
+        <div class="product-overlay">
+          <div class="product-actions">
+            <button class="action-btn view-btn" onclick="viewProduct('garnet-4')">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="action-btn wishlist-btn">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="action-btn cart-btn">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Almandine Garnet</h3>
+        <p class="product-description">Classic almandine with rich burgundy color</p>
+        <div class="product-specs">
+          <span class="spec">4.5 Carats</span>
+          <span class="spec">Heat Treated</span>
+        </div>
+        <div class="product-price">
+          <span class="current-price">Rs. 38,000</span>
+          <span class="original-price">Rs. 48,000</span>
+        </div>
+        <div class="product-rating">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <span class="rating-text">4.2 (15 reviews)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="../images/img5.jpg" alt="Green Garnet Stone" class="main-image">
+        <div class="product-overlay">
+          <div class="product-actions">
+            <button class="action-btn view-btn" onclick="viewProduct('garnet-5')">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="action-btn wishlist-btn">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="action-btn cart-btn">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Green Tsavorite Garnet</h3>
+        <p class="product-description">Rare green tsavorite garnet</p>
+        <div class="product-specs">
+          <span class="spec">2.8 Carats</span>
+          <span class="spec">Natural</span>
+        </div>
+        <div class="product-price">
+          <span class="current-price">Rs. 95,000</span>
+          <span class="original-price">Rs. 110,000</span>
+        </div>
+        <div class="product-rating">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <span class="rating-text">4.9 (12 reviews)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="../images/img6.jpg" alt="Rhodolite Garnet Stone" class="main-image">
+        <div class="product-overlay">
+          <div class="product-actions">
+            <button class="action-btn view-btn" onclick="viewProduct('garnet-6')">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="action-btn wishlist-btn">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="action-btn cart-btn">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Pink Rhodolite Garnet</h3>
+        <p class="product-description">Beautiful pink-purple rhodolite</p>
+        <div class="product-specs">
+          <span class="spec">4.2 Carats</span>
+          <span class="spec">Unheated</span>
+        </div>
+        <div class="product-price">
+          <span class="current-price">Rs. 72,000</span>
+          <span class="original-price">Rs. 85,000</span>
+        </div>
+        <div class="product-rating">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <span class="rating-text">4.6 (22 reviews)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <!-- Footer Top Bar -->
+  <div class="footer-top-bar">
+    <div class="footer-top-content">
+      <div class="footer-brand">
+        <h2>JP Gems</h2>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><img src="images/fb.png" alt="Facebook"></a>
+        <a href="#" class="social-icon"><img src="images/ins.jpg" alt="Instagram"></a>
+        <a href="#" class="social-icon"><img src="images/whatsapp.jpg" alt="WhatsApp"></a>
+        <a href="#" class="social-icon"><img src="images/youtube.png" alt="YouTube"></a>
+        <a href="#" class="social-icon"><img src="images/tiktok.png" alt="TikTok"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-sections-row">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Gemstones</h3>
+        <ul>
+          <li><a href="html/blue-sapphires.html">Blue Sapphires</a></li>
+          <li><a href="html/ruby.html">Ruby</a></li>
+          <li><a href="html/emerald.html">Emerald</a></li>
+          <li><a href="html/diamonds.html">Diamonds</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul class="contact-info">
+          <li><i class="fas fa-phone"></i> +94 77 123 4567</li>
+          <li><a href="mailto:info@jpgems.lk"><i class="fas fa-envelope"></i> info@jpgems.lk</a></li>
+          <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+        </ul>
+      </div>
+      
+      <div class="footer-logo-section">
+        <img src="images/lg.png" alt="JP Gems Logo">
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2025 JP Gems. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Include the JavaScript -->
+<script src="../js/main-script.js"></script>
+
+</body>
+</html>

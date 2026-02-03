@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gem Store - Premium Collection</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="css/main-style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <a href="index.html" class="logo-link">
+    <div class="logo">
+      <img src="images/lg.png" alt="JpGems Logo" class="logo-image">
+    </div>
+  </a>
+  <nav>
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#gemstones-section">Gemstones</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+  <div class="header-icons">
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+    <i class="fas fa-shopping-cart"></i>
+    <div class="profile-dropdown">
+      <i class="fas fa-user" id="profileIcon"></i>
+      <div class="dropdown-menu" id="profileDropdown">
+        <div class="dropdown-header">
+          <h4>Account</h4>
+          <p>Please login to access your account</p>
+        </div>
+        <div class="dropdown-actions">
+          <button class="btn-login" onclick="openModal('loginModal')">Login</button>
+          <button class="btn-signup" onclick="openModal('signupModal')">Sign Up</button>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-items">
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-box"></i>
+            <span>My Orders</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-credit-card"></i>
+            <span>Payment</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope"></i>
+            <span>Message Center</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-heart"></i>
+            <span>Wish List</span>
+          </a>
+        </div>
+        <a href="#" class="dropdown-item logout" onclick="handleLogout(event)">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <img src="images/slide1.jpg" class="active" alt="Gem 1">
+  <img src="images/slide2.jpg" alt="Gem 2">
+  <img src="images/slide3.jpg" alt="Gem 3">
+  <img src="images/slide4.jpg" alt="Gem 4">
+  
+  <!-- Hero Text for each slide -->
+  <div class="hero-text active" data-slide="0">
+    <h1>Premium Gems Collection</h1>
+    <p>Discover the finest Sri Lankan gemstones with exceptional quality and authenticity</p>
+  </div>
+  <div class="hero-text" data-slide="1">
+    <h1>Natural Sapphires</h1>
+    <p>Explore our stunning collection of blue sapphires from the gem island of Ceylon</p>
+  </div>
+  <div class="hero-text" data-slide="2">
+    <h1>Precious Rubies</h1>
+    <p>Experience the passionate beauty of our carefully selected ruby gemstones</p>
+  </div>
+  <div class="hero-text" data-slide="3">
+    <h1>Certified Excellence</h1>
+    <p>Every gem comes with international certification ensuring authenticity and value</p>
+  </div>
+  
+  <!-- Navigation Arrows -->
+  <div class="hero-nav">
+    <button class="hero-nav-btn prev-btn" aria-label="Previous slide">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="hero-nav-btn next-btn" aria-label="Next slide">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+  
+  <!-- Slide Indicators -->
+  <div class="hero-indicators">
+    <button class="indicator active" data-slide="0"></button>
+    <button class="indicator" data-slide="1"></button>
+    <button class="indicator" data-slide="2"></button>
+    <button class="indicator" data-slide="3"></button>
+  </div>
+</section>
+
+<!-- Featured Promotional Sections -->
+<section class="promotional-sections">
+  <div class="promo-container">
+    <!-- Featured Collection -->
+    <div class="promo-section featured-collection">
+      <div class="promo-header">
+        <div class="promo-icon">
+          <i class="fas fa-gem"></i>
+        </div>
+        <div class="promo-title">
+          <h3>Featured Gemstones Collection</h3>
+          <p>Premium quality gems handpicked by experts</p>
+        </div>
+      </div>
+      <div class="promo-items">
+        <a href="html/itemdetails.html?item=blue-sapphire" class="promo-item">
+          <img src="images/blue-sapphires.jpg" alt="Blue Sapphire">
+          <span class="item-name">Blue Sapphire</span>
+          <span class="item-price">$299</span>
+        </a>
+        <a href="html/itemdetails.html?item=premium-ruby" class="promo-item">
+          <img src="images/rb0.jpg" alt="Ruby">
+          <span class="item-name">Premium Ruby</span>
+          <span class="item-price">$459</span>
+        </a>
+        <a href="html/itemdetails.html?item=emerald" class="promo-item">
+          <img src="images/img2.jpg" alt="Emerald">
+          <span class="item-name">Emerald</span>
+          <span class="item-price">$399</span>
+        </a>
+      </div>
+      <button class="promo-btn">View All</button>
+    </div>
+    
+    <!-- Special Offers -->
+    <div class="promo-section special-offer">
+      <div class="promo-header">
+        <div class="promo-icon">
+          <i class="fas fa-tags"></i>
+        </div>
+        <div class="promo-title">
+          <h3>Special Offers</h3>
+          <p>Up to 30% off on selected gems</p>
+        </div>
+      </div>
+      <div class="promo-items">
+        <a href="html/itemdetails.html?item=yellow-sapphire" class="promo-item">
+          <img src="images/ys0.jpg" alt="Yellow Sapphire">
+          <span class="item-name">Yellow Sapphire</span>
+          <span class="item-price"><del>$350</del> $245</span>
+        </a>
+        <a href="html/itemdetails.html?item=pink-sapphire" class="promo-item">
+          <img src="images/pis0.jpg" alt="Pink Sapphire">
+          <span class="item-name">Pink Sapphire</span>
+          <span class="item-price"><del>$420</del> $294</span>
+        </a>
+        <a href="html/itemdetails.html?item=white-sapphire" class="promo-item">
+          <img src="images/ws0.jpg" alt="White Sapphire">
+          <span class="item-name">White Sapphire</span>
+          <span class="item-price"><del>$280</del> $196</span>
+        </a>
+      </div>
+      <button class="promo-btn">Shop Now</button>
+    </div>
+    
+    <!-- New Arrivals -->
+    <div class="promo-section new-arrivals">
+      <div class="promo-header">
+        <div class="promo-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="promo-title">
+          <h3>New Arrivals</h3>
+          <p>Latest rare and exotic gemstones</p>
+        </div>
+      </div>
+      <div class="promo-items">
+        <a href="html/itemdetails.html?item=premium-diamond" class="promo-item">
+          <img src="images/pd0.jpg" alt="Diamond">
+          <span class="item-name">Premium Diamond</span>
+          <span class="item-price">$899</span>
+        </a>
+        <a href="html/itemdetails.html?item=red-garnet" class="promo-item">
+          <img src="images/img5.jpg" alt="Garnet">
+          <span class="item-name">Red Garnet</span>
+          <span class="item-price">$189</span>
+        </a>
+        <a href="html/itemdetails.html?item=golden-citrine" class="promo-item">
+          <img src="images/img6.jpg" alt="Citrine">
+          <span class="item-name">Golden Citrine</span>
+          <span class="item-price">$159</span>
+        </a>
+      </div>
+      <button class="promo-btn">Explore</button>
+    </div>
+  </div>
+</section>
+
+<!-- Gemstones Categories Section -->
+<section class="gemstones" id="gemstones-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-gem section-icon"></i>
+        Premium Gemstones Collection
+      </h2>
+      <p class="section-description">Discover the world's finest precious and semi-precious gemstones, each carefully selected for their exceptional beauty, quality, and authenticity</p>
+      <div class="section-stats">
+        <div class="stat-item">
+          <span class="stat-number">12+</span>
+          <span class="stat-label">Gemstone Types</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Premium Pieces</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Certified Authentic</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="gemstone-grid">
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="100">
+        <a href="html/blue-sapphires.html">
+          <div class="gemstone-image">
+            <img src="images/blue-sapphires.jpg" alt="Blue Sapphires">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">Blue Sapphires</h3>
+                <p class="gemstone-desc">Ceylon's Finest</p>
+                <div class="gemstone-price">From $299</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-badge">Popular</div>
+        </a>
+      </div>
+      
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="200">
+        <a href="html/ruby.html">
+          <div class="gemstone-image">
+            <img src="images/rb0.jpg" alt="Ruby">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">Ruby</h3>
+                <p class="gemstone-desc">King of Gems</p>
+                <div class="gemstone-price">From $459</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-badge premium">Premium</div>
+        </a>
+      </div>
+      
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="300">
+        <a href="html/emerald.html">
+          <div class="gemstone-image">
+            <img src="images/pis0.jpg" alt="Emerald">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">Emerald</h3>
+                <p class="gemstone-desc">Nature's Green Beauty</p>
+                <div class="gemstone-price">From $399</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="400">
+        <a href="html/diamonds.html">
+          <div class="gemstone-image">
+            <img src="images/pd0.jpg" alt="Diamonds">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">Diamonds</h3>
+                <p class="gemstone-desc">Forever Brilliant</p>
+                <div class="gemstone-price">From $899</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-badge exclusive">Exclusive</div>
+        </a>
+      </div>
+      
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="500">
+        <a href="html/yellow-sapphire.html">
+          <div class="gemstone-image">
+            <img src="images/ys0.jpg" alt="Yellow Sapphire">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">Yellow Sapphire</h3>
+                <p class="gemstone-desc">Golden Radiance</p>
+                <div class="gemstone-price">From $245</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="600">
+        <a href="html/pink-sapphire.html">
+          <div class="gemstone-image">
+            <img src="images/ps1.jpg" alt="Pink Sapphire">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">Pink Sapphire</h3>
+                <p class="gemstone-desc">Romantic Elegance</p>
+                <div class="gemstone-price">From $294</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="700">
+        <a href="html/white-sapphires.html">
+          <div class="gemstone-image">
+            <img src="images/ws1.jpg" alt="White Sapphires">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">White Sapphires</h3>
+                <p class="gemstone-desc">Pure Brilliance</p>
+                <div class="gemstone-price">From $196</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="800">
+        <a href="html/garnet.html">
+          <div class="gemstone-image">
+            <img src="images/img3.jpg" alt="Garnet">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">Garnet</h3>
+                <p class="gemstone-desc">Deep Red Passion</p>
+                <div class="gemstone-price">From $189</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-badge new">New</div>
+        </a>
+      </div>
+      
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="900">
+        <a href="html/opals.html">
+          <div class="gemstone-image">
+            <img src="images/img4.jpg" alt="Opals">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">Opals</h3>
+                <p class="gemstone-desc">Rainbow Fire</p>
+                <div class="gemstone-price">From $129</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="1000">
+        <a href="html/zircon.html">
+          <div class="gemstone-image">
+            <img src="images/img6.jpg" alt="Zircons">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">Zircons</h3>
+                <p class="gemstone-desc">Crystal Clear</p>
+                <div class="gemstone-price">From $99</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="1100">
+        <a href="html/star-sapphire.html">
+          <div class="gemstone-image">
+            <img src="images/img7.jpg" alt="Star Sapphires">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">Star Sapphires</h3>
+                <p class="gemstone-desc">Celestial Wonder</p>
+                <div class="gemstone-price">From $359</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-badge rare">Rare</div>
+        </a>
+      </div>
+      
+      <div class="gemstone-card" data-aos="fade-up" data-aos-delay="1200">
+        <a href="html/garnet.html">
+          <div class="gemstone-image">
+            <img src="images/cc.jpg" alt="Citrines">
+            <div class="gemstone-overlay">
+              <div class="gemstone-content">
+                <h3 class="gemstone-name">Citrines</h3>
+                <p class="gemstone-desc">Sunny Warmth</p>
+                <div class="gemstone-price">From $159</div>
+                <div class="explore-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  <span>Explore Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+   
+  </div>
+</section>
+
+<!-- Customer Reviews Section -->
+<section class="customer-reviews" id="reviews-section">
+  <div class="container">
+    <h2 class="section-title">Customer Reviews</h2>
+    <p class="section-description">What our valued customers say about JP Gems</p>
+    
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-header">
+          <div class="customer-avatar">
+            <img src="images/img1.jpg" alt="Customer Avatar">
+          </div>
+          <div class="customer-info">
+            <h4 class="customer-name">Sarah Johnson</h4>
+            <div class="star-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="review-content">
+          <p>"Amazing quality gemstones! I purchased a blue sapphire ring and the brilliance is exceptional. The customer service was outstanding and delivery was prompt. Highly recommend JP Gems!"</p>
+        </div>
+        <div class="review-date">March 15, 2024</div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-header">
+          <div class="customer-avatar">
+            <img src="images/img2.jpg" alt="Customer Avatar">
+          </div>
+          <div class="customer-info">
+            <h4 class="customer-name">Michael Chen</h4>
+            <div class="star-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="review-content">
+          <p>"Purchased an emerald for my wife's anniversary gift. The stone was exactly as described and even more beautiful in person. Professional packaging and certification included. Will definitely buy again!"</p>
+        </div>
+        <div class="review-date">February 28, 2024</div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-header">
+          <div class="customer-avatar">
+            <img src="images/img3.jpg" alt="Customer Avatar">
+          </div>
+          <div class="customer-info">
+            <h4 class="customer-name">Emily Rodriguez</h4>
+            <div class="star-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="review-content">
+          <p>"Best gemstone dealer I've found! Their collection of rubies is incredible and the prices are very competitive. The team is knowledgeable and helped me choose the perfect stone for my jewelry project."</p>
+        </div>
+        <div class="review-date">January 20, 2024</div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-header">
+          <div class="customer-avatar">
+            <img src="images/img4.jpg" alt="Customer Avatar">
+          </div>
+          <div class="customer-info">
+            <h4 class="customer-name">David Thompson</h4>
+            <div class="star-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="review-content">
+          <p>"Excellent experience from start to finish. Ordered a yellow sapphire and received detailed information about the stone's origin and quality. Fast shipping and beautiful presentation box. Truly professional service!"</p>
+        </div>
+        <div class="review-date">December 10, 2023</div>
+      </div>
+    </div>
+    
+    <div class="review-stats">
+      <div class="stat-item">
+        <div class="stat-number">4.9</div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2,500+</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <!-- Footer Top Bar -->
+  <div class="footer-top-bar">
+    <div class="footer-top-content">
+      <div class="footer-brand">
+        <h2>JP Gems</h2>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><img src="images/fb.png" alt="Facebook"></a>
+        <a href="#" class="social-icon"><img src="images/ins.jpg" alt="Instagram"></a>
+        <a href="#" class="social-icon"><img src="images/whatsapp.jpg" alt="WhatsApp"></a>
+        <a href="#" class="social-icon"><img src="images/youtube.png" alt="YouTube"></a>
+        <a href="#" class="social-icon"><img src="images/tiktok.png" alt="TikTok"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-sections-row">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Gemstones</h3>
+        <ul>
+          <li><a href="html/blue-sapphires.html">Blue Sapphires</a></li>
+          <li><a href="html/ruby.html">Ruby</a></li>
+          <li><a href="html/emerald.html">Emerald</a></li>
+          <li><a href="html/diamonds.html">Diamonds</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul class="contact-info">
+          <li><i class="fas fa-phone"></i> +94 77 123 4567</li>
+          <li><a href="mailto:info@jpgems.lk"><i class="fas fa-envelope"></i> info@jpgems.lk</a></li>
+          <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+        </ul>
+      </div>
+      
+      <div class="footer-logo-section">
+        <img src="images/lg.png" alt="JP Gems Logo">
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2025 JP Gems. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Login Modal -->
+<div id="loginModal" class="auth-modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
+    <div class="modal-header">
+      <h1><i class="fas fa-gem"></i> JP Gems</h1>
+      <p>Welcome back! Please sign in to your account</p>
+    </div>
+
+    <div class="modal-error-message" id="loginErrorMessage"></div>
+    <div class="modal-success-message" id="loginSuccessMessage"></div>
+
+    <form id="modalLoginForm">
+      <div class="modal-form-group">
+        <label for="modalLoginEmail">Email Address</label>
+        <div class="input-icon">
+          <input type="email" id="modalLoginEmail" name="email" required>
+          <i class="fas fa-envelope"></i>
+        </div>
+      </div>
+
+      <div class="modal-form-group">
+        <label for="modalLoginPassword">Password</label>
+        <div class="input-icon">
+          <input type="password" id="modalLoginPassword" name="password" required>
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
+
+      <div class="modal-form-group">
+        <label>
+          <input type="checkbox" id="modalLoginRemember" name="remember"> Remember me
+        </label>
+      </div>
+
+      <button type="submit" class="modal-btn-auth">
+        <i class="fas fa-sign-in-alt"></i> Sign In
+      </button>
+    </form>
+
+    <div class="modal-social-login">
+      <div class="modal-social-divider">
+        <span>or login with</span>
+      </div>
+      <div class="modal-social-buttons">
+        <button type="button" class="modal-btn-social modal-btn-google" onclick="loginWithGoogle()">
+          <img src="images/google.png" alt="Google" class="modal-social-icon-img">
+          <span>Google</span>
+        </button>
+        <button type="button" class="modal-btn-social modal-btn-facebook" onclick="loginWithFacebook()">
+          <img src="images/fb.png" alt="Facebook" class="modal-social-icon-img">
+          <span>Facebook</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-auth-links">
+      <p>Don't have an account? <a href="#" onclick="switchToSignup()">Create one here</a></p>
+      <p><a href="#" onclick="closeModal('loginModal')">Forgot your password?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div id="signupModal" class="auth-modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('signupModal')">&times;</button>
+    <div class="modal-header">
+      <h1><i class="fas fa-gem"></i> JP Gems</h1>
+      <p>Create your account to start shopping premium gemstones</p>
+    </div>
+
+    <div class="modal-error-message" id="signupErrorMessage"></div>
+    <div class="modal-success-message" id="signupSuccessMessage"></div>
+
+    <form id="modalSignupForm">
+      <div class="modal-form-group">
+        <label for="modalSignupFirstName">First Name</label>
+        <div class="input-icon">
+          <input type="text" id="modalSignupFirstName" name="firstName" required>
+          <i class="fas fa-user"></i>
+        </div>
+      </div>
+
+      <div class="modal-form-group">
+        <label for="modalSignupLastName">Last Name</label>
+        <div class="input-icon">
+          <input type="text" id="modalSignupLastName" name="lastName" required>
+          <i class="fas fa-user"></i>
+        </div>
+      </div>
+
+      <div class="modal-form-group">
+        <label for="modalSignupEmail">Email Address</label>
+        <div class="input-icon">
+          <input type="email" id="modalSignupEmail" name="email" required>
+          <i class="fas fa-envelope"></i>
+        </div>
+      </div>
+
+      <div class="modal-form-group">
+        <label for="modalSignupPhone">Phone Number</label>
+        <div class="input-icon">
+          <input type="tel" id="modalSignupPhone" name="phone" required>
+          <i class="fas fa-phone"></i>
+        </div>
+      </div>
+
+      <div class="modal-form-group">
+        <label for="modalSignupPassword">Password</label>
+        <div class="input-icon">
+          <input type="password" id="modalSignupPassword" name="password" required>
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
+
+      <div class="modal-form-group">
+        <label for="modalSignupConfirmPassword">Confirm Password</label>
+        <div class="input-icon">
+          <input type="password" id="modalSignupConfirmPassword" name="confirmPassword" required>
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
+
+      <div class="modal-form-group">
+        <label>
+          <input type="checkbox" id="modalSignupTerms" name="terms" required> 
+          I agree to the <a href="#" target="_blank">Terms & Conditions</a>
+        </label>
+      </div>
+
+      <div class="modal-form-group">
+        <label>
+          <input type="checkbox" id="modalSignupNewsletter" name="newsletter"> 
+          Subscribe to newsletter for exclusive offers
+        </label>
+      </div>
+
+      <button type="submit" class="modal-btn-auth">
+        <i class="fas fa-user-plus"></i> Create Account
+      </button>
+    </form>
+
+    <div class="modal-social-login">
+      <div class="modal-social-divider">
+        <span>or sign up with</span>
+      </div>
+      <div class="modal-social-buttons">
+        <button type="button" class="modal-btn-social modal-btn-google" onclick="signupWithGoogle()">
+          <img src="images/google.png" alt="Google" class="modal-social-icon-img">
+          <span>Google</span>
+        </button>
+        <button type="button" class="modal-btn-social modal-btn-facebook" onclick="signupWithFacebook()">
+          <img src="images/fb.png" alt="Facebook" class="modal-social-icon-img">
+          <span>Facebook</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-auth-links">
+      <p>Already have an account? <a href="#" onclick="switchToLogin()">Sign in here</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- External JavaScript -->
+<script src="js/main-script.js"></script>
+</body>
+</html>

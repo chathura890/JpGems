@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - JP Gems</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main-style.css">
+<style>
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    background: linear-gradient(135deg, #0d3b66, #1a4f7a);
+    padding: 20px;
+    padding-top: 50px;
+}
+
+.auth-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h1 {
+    color: #0d3b66;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.auth-header p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #0d3b66;
+}
+
+.form-group .input-icon {
+    position: relative;
+}
+
+.form-group .input-icon i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.btn-auth {
+    width: 100%;
+    padding: 12px;
+    background: #0d3b66;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-auth:hover {
+    background: #1a4f7a;
+}
+
+.auth-links {
+    text-align: center;
+}
+
+.auth-links a {
+    color: #0d3b66;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    background: #fee;
+    color: #c33;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.success-message {
+    background: #efe;
+    color: #3c3;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+/* Social Login Styles */
+.social-login {
+    margin: 20px 0;
+}
+
+.social-divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.social-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #ddd;
+    z-index: 1;
+}
+
+.social-divider span {
+    background: white;
+    padding: 0 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-social {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-social:hover {
+    border-color: #ccc;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn-google {
+    border-color: #db4437;
+    color: #db4437;
+}
+
+.btn-google:hover {
+    background: #db4437;
+    color: white;
+}
+
+.btn-facebook {
+    border-color: #3b5998;
+    color: #3b5998;
+}
+
+.btn-facebook:hover {
+    background: #3b5998;
+    color: white;
+}
+
+.btn-social i {
+    font-size: 16px;
+    width: 16px;
+    text-align: center;
+}
+
+/* Image icons for social login */
+.social-icon-img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* Remove text-based icon styles when using images */
+.btn-google:hover .social-icon-img,
+.btn-facebook:hover .social-icon-img {
+    filter: brightness(0) invert(1);
+}
+
+/* Simple text-based icons for better visibility */
+.btn-google i::before {
+    content: "G";
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    color: #db4437;
+}
+
+.btn-facebook i::before {
+    content: "f";
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    color: #3b5998;
+}
+
+/* Remove any scroll-to-top buttons or right side bars */
+.scroll-to-top,
+.back-to-top,
+.scroll-btn,
+.side-nav,
+.fixed-sidebar,
+[class*="scroll"][class*="top"],
+[class*="back"][class*="top"] {
+    display: none !important;
+}
+
+/* Hide any fixed positioned elements on the right side */
+*[style*="position: fixed"][style*="right:"],
+*[style*="position:fixed"][style*="right:"] {
+    display: none !important;
+}
+</style>
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="auth-box">
+        <div class="auth-header">
+            <h1><i class="fas fa-gem"></i> JP Gems</h1>
+            <p>Welcome back! Please sign in to your account</p>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <div class="input-icon">
+                    <input type="email" id="email" name="email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-icon">
+                    <input type="password" id="password" name="password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="remember" name="remember"> Remember me
+                </label>
+            </div>
+
+            <button type="submit" class="btn-auth">
+                <i class="fas fa-sign-in-alt"></i> Sign In
+            </button>
+        </form>
+
+        <div class="auth-links">
+            <p>Don't have an account? <a href="signup.html">Create one here</a></p>
+            <p><a href="forgot-password.html">Forgot your password?</a></p>
+            <p><a href="index.html">← Back to Home</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const remember = document.getElementById('remember').checked;
+    
+    const errorDiv = document.getElementById('errorMessage');
+    const successDiv = document.getElementById('successMessage');
+    
+    // Hide previous messages
+    errorDiv.style.display = 'none';
+    successDiv.style.display = 'none';
+    
+    try {
+        const response = await fetch('php/auth/login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+                remember: remember
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            successDiv.textContent = 'Login successful! Redirecting...';
+            successDiv.style.display = 'block';
+            
+            // Store user session
+            localStorage.setItem('userToken', data.token);
+            localStorage.setItem('userData', JSON.stringify(data.user));
+            
+            // Redirect after 1 second
+            setTimeout(() => {
+                window.location.href = data.redirect || 'index.html';
+            }, 1000);
+        } else {
+            errorDiv.textContent = data.message || 'Login failed. Please try again.';
+            errorDiv.style.display = 'block';
+        }
+    } catch (error) {
+        errorDiv.textContent = 'Network error. Please try again.';
+        errorDiv.style.display = 'block';
+    }
+});
+
+// Social Login Functions
+function loginWithGoogle() {
+    console.log('Google login initiated');
+    
+    const errorDiv = document.getElementById('errorMessage');
+    const successDiv = document.getElementById('successMessage');
+    
+    errorDiv.style.display = 'none';
+    successDiv.textContent = 'Google login coming soon! Please use email login for now.';
+    successDiv.style.display = 'block';
+}
+
+function loginWithFacebook() {
+    console.log('Facebook login initiated');
+    
+    const errorDiv = document.getElementById('errorMessage');
+    const successDiv = document.getElementById('successMessage');
+    
+    errorDiv.style.display = 'none';
+    successDiv.textContent = 'Facebook login coming soon! Please use email login for now.';
+    successDiv.style.display = 'block';
+}
+</script>
+
+</body>
+</html>

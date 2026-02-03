@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>White Sapphires - JP Gems</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="../css/main-style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <a href="../index.html" class="logo-link">
+    <div class="logo">
+      <img src="../images/lg.png" alt="JpGems Logo" class="logo-image">
+    </div>
+  </a>
+  <nav>
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#gemstones-section">Gemstones</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+  <div class="header-icons">
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+    <i class="fas fa-shopping-cart"></i>
+    <div class="profile-dropdown">
+      <i class="fas fa-user" id="profileIcon"></i>
+      <div class="dropdown-menu" id="profileDropdown">
+        <div class="dropdown-header">
+          <h4>Welcome!</h4>
+          <p>Please login to access your account</p>
+        </div>
+        <div class="dropdown-actions">
+          <button class="btn-login" onclick="showLogin()">Login</button>
+          <button class="btn-signup" onclick="showSignup()">Sign Up</button>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-items">
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-box"></i>
+            <span>My Orders</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-coins"></i>
+            <span>My Coins</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope"></i>
+            <span>Message Center</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-credit-card"></i>
+            <span>Payment</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-heart"></i>
+            <span>Wish List</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-ticket-alt"></i>
+            <span>My Coupons</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section for Category -->
+<section class="hero" style="height: 50vh;">
+  <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&w=1950&q=80" class="active" alt="White Sapphire">
+  
+</section>
+
+<!-- Products Section -->
+<section class="products" style="display: block;">
+  <h2>White Sapphires Collection</h2>
+  <div class="product-grid" id="productGrid">
+    <!-- Products will be loaded here by JavaScript -->
+  </div>
+</section>
+
+<!-- Category-specific JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadCategoryProducts('White Sapphires');
+    setupMobileMenu();
+  });
+
+  function loadCategoryProducts(categoryName) {
+    const productGrid = document.getElementById('productGrid');
+    
+    // Sample products for this category
+    const products = Array.from({length:12}, (_,i)=>({
+      name: `Premium ${categoryName} ${i+1}`,
+      desc: `Authentic, high-quality ${categoryName.toLowerCase()} with perfect clarity and brilliant cut.`,
+      price: '$' + (350 + i * 100),
+      rating: (4.0 + Math.random() * 1).toFixed(1),
+      img: 'https://images.unsplash.com/photo-1598966730386-724db68b0da6?auto=format&w=500&q=80',
+      weight: (0.5 + Math.random() * 2).toFixed(2) + ' carats',
+      inStock: Math.random() > 0.2
+    }));
+
+    products.forEach(product => {
+      const div = document.createElement('div');
+      div.className = 'product-card';
+      div.innerHTML = `
+        <img src="${product.img}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.desc}</p>
+        <div class="product-details" style="display: flex; justify-content: space-between; margin: 10px 0; font-size: 0.9rem; color: #666;">
+          <span><i class="fas fa-gem"></i> ${product.weight}</span>
+          <span><i class="fas fa-star" style="color: #ffd700;"></i> ${product.rating}</span>
+        </div>
+        <div class="price">${product.price}</div>
+        <div class="stock-status" style="margin: 10px 0; font-size: 0.9rem; color: ${product.inStock ? '#28a745' : '#dc3545'};">
+          ${product.inStock ? '✅ In Stock' : '❌ Out of Stock'}
+        </div>
+        <button onclick="addToCart('${product.name}')" ${!product.inStock ? 'disabled style="opacity: 0.6; cursor: not-allowed;"' : ''}>
+          <i class="fas fa-shopping-cart"></i> Add to Cart
+        </button>
+      `;
+      productGrid.appendChild(div);
+    });
+  }
+
+  function addToCart(productName) {
+    alert(`${productName} added to cart!`);
+  }
+
+  function setupMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navUl = document.querySelector('nav ul');
+    if (menuToggle && navUl) {
+      menuToggle.addEventListener('click', () => {
+        navUl.classList.toggle('show');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      });
+    }
+  }
+</script>
+
+</body>
+</html>
+

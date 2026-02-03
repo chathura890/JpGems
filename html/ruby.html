@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruby Collection - JP Gems</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="../css/main-style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <a href="../index.html" class="logo-link">
+    <div class="logo">
+      <img src="../images/lg.png" alt="JpGems Logo" class="logo-image">
+    </div>
+  </a>
+  <nav>
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#gemstones-section">Gemstones</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+  <div class="header-icons">
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+    <i class="fas fa-shopping-cart"></i>
+    <div class="profile-dropdown">
+      <i class="fas fa-user" id="profileIcon"></i>
+      <div class="dropdown-menu" id="profileDropdown">
+        <div class="dropdown-header">
+          <h4>Welcome!</h4>
+          <p>Please login to access your account</p>
+        </div>
+        <div class="dropdown-actions">
+          <button class="btn-login" onclick="window.location.href='../login.html'">Login</button>
+          <button class="btn-signup" onclick="window.location.href='../signup.html'">Sign Up</button>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-items">
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-box"></i>
+            <span>My Orders</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-coins"></i>
+            <span>My Coins</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope"></i>
+            <span>Message Center</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-credit-card"></i>
+            <span>Payment</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-heart"></i>
+            <span>Wish List</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-ticket-alt"></i>
+            <span>My Coupons</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+          
+
+<!-- Hero Section for Category -->
+<section class="hero" style="height: 50vh;">
+  <img src="../images/rb0.jpg" class="active" alt="Ruby">
+</section>
+
+<!-- Products Section -->
+<section class="products" style="display: block;">
+  <h2>Ruby Collection</h2>
+  <div class="product-grid" id="productGrid">
+    <!-- Products will be loaded here by JavaScript -->
+  </div>
+</section>
+
+
+<!-- Category-specific JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadCategoryProducts('Ruby');
+    setupMobileMenu();
+  });
+
+  function loadCategoryProducts(categoryName) {
+    const productGrid = document.getElementById('productGrid');
+    
+    // Sample products for this category
+    const products = Array.from({length:12}, (_,i)=>({
+      name: `Premium ${categoryName} ${i+1}`,
+      desc: `Authentic, high-quality ${categoryName.toLowerCase()} with perfect clarity and brilliant cut.`,
+      price: '$' + (400 + i * 120),
+      rating: (4.0 + Math.random() * 1).toFixed(1),
+      img: 'https://images.unsplash.com/photo-1579630580915-6ed4e4959a8f?auto=format&w=500&q=80',
+      weight: (0.5 + Math.random() * 2).toFixed(2) + ' carats',
+      inStock: Math.random() > 0.2
+    }));
+
+    products.forEach(product => {
+      const div = document.createElement('div');
+      div.className = 'product-card';
+      div.innerHTML = `
+        <img src="${product.img}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.desc}</p>
+        <div class="product-details" style="display: flex; justify-content: space-between; margin: 10px 0; font-size: 0.9rem; color: #666;">
+          <span><i class="fas fa-gem"></i> ${product.weight}</span>
+          <span><i class="fas fa-star" style="color: #ffd700;"></i> ${product.rating}</span>
+        </div>
+        <div class="price">${product.price}</div>
+        <div class="stock-status" style="margin: 10px 0; font-size: 0.9rem; color: ${product.inStock ? '#28a745' : '#dc3545'};">
+          ${product.inStock ? '✅ In Stock' : '❌ Out of Stock'}
+        </div>
+        <button onclick="addToCart('${product.name}')" ${!product.inStock ? 'disabled style="opacity: 0.6; cursor: not-allowed;"' : ''}>
+          <i class="fas fa-shopping-cart"></i> Add to Cart
+        </button>
+      `;
+      productGrid.appendChild(div);
+    });
+  }
+
+  function addToCart(productName) {
+    alert(`${productName} added to cart!`);
+  }
+
+  function setupMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navUl = document.querySelector('nav ul');
+    if (menuToggle && navUl) {
+      menuToggle.addEventListener('click', () => {
+        navUl.classList.toggle('show');
+        const icon = menuToggle.querySelector('i');
+  }
+</script>
+
+<!-- Footer -->
+<footer>
+  <!-- Footer Top Bar -->
+  <div class="footer-top-bar">
+    <div class="footer-top-content">
+      <div class="footer-brand">
+        <h2>JP Gems</h2>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><img src="../images/fb.png" alt="Facebook"></a>
+        <a href="#" class="social-icon"><img src="../images/ins.jpg" alt="Instagram"></a>
+        <a href="#" class="social-icon"><img src="../images/whatsapp.jpg" alt="WhatsApp"></a>
+        <a href="#" class="social-icon"><img src="../images/youtube.png" alt="YouTube"></a>
+        <a href="#" class="social-icon"><img src="../images/tiktok.png" alt="TikTok"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-sections-row">
+      <div class="footer-logo-section">
+        <div class="footer-brand-large">
+          <h2>JP Gems</h2>
+          <p>Your trusted source for premium gemstones</p>
+        </div>
+      </div>
+
+      <div class="footer-links-sections">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../feedback.html">Feedback</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Gemstones</h3>
+          <ul>
+            <li><a href="blue-sapphires.html">Blue Sapphires</a></li>
+            <li><a href="ruby.html">Ruby</a></li>
+            <li><a href="emerald.html">Emerald</a></li>
+            <li><a href="diamonds.html">Diamonds</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul class="contact-info">
+            <li><i class="fas fa-phone"></i> +94 77 123 4567</li>
+            <li><a href="mailto:info@jpgems.lk"><i class="fas fa-envelope"></i> info@jpgems.lk</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-social-section">
+        <div class="footer-social-vertical">
+          <a href="#" class="social-icon"><img src="../images/fb.png" alt="Facebook"></a>
+          <a href="#" class="social-icon"><img src="../images/ins.jpg" alt="Instagram"></a>
+          <a href="#" class="social-icon"><img src="../images/whatsapp.jpg" alt="WhatsApp"></a>
+          <a href="#" class="social-icon"><img src="../images/youtube.png" alt="YouTube"></a>
+          <a href="#" class="social-icon"><img src="../images/tiktok.png" alt="TikTok"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2025 JP Gems. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="../js/itemdetails.js"></script>
+<script src="../js/main-script.js"></script>
+
+</body>
+</html> 

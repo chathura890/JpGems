@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - JpGems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main-style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-link">
+            <div class="logo">
+                <img src="images/lg.png" alt="JpGems Logo" class="logo-image">
+            </div>
+        </a>
+        <nav>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#gemstones-section">Gemstones</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="feedback.html" class="active">Feedback</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <!-- Theme Toggle -->
+            <div class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </div>
+            <i class="fas fa-shopping-cart"></i>
+            <div class="profile-dropdown">
+              <i class="fas fa-user" id="profileIcon"></i>
+              <div class="dropdown-menu" id="profileDropdown">
+                <div class="dropdown-header">
+                  <h4>Welcome!</h4>
+                  <p>Please login to access your account</p>
+                </div>
+                <div class="dropdown-actions">
+                  <button class="btn-login" onclick="window.location.href='login.html'">Login</button>
+                  <button class="btn-signup" onclick="window.location.href='signup.html'">Sign Up</button>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-items">
+                  <a href="#" class="dropdown-item">
+                    <i class="fas fa-box"></i>
+                    <span>My Orders</span>
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <i class="fas fa-coins"></i>
+                    <span>Rewards</span>
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+        </div>
+    </header>
+                  
+
+    <main class="feedback-page">
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="hero-content">
+                <h1>Your Feedback Matters</h1>
+                <p>Help Us Serve You Better</p>
+            </div>
+        </section>
+
+        <!-- Feedback Content -->
+        <section class="feedback-content">
+            <div class="container">
+                <div class="feedback-intro">
+                    <h2>We Value Your Opinion</h2>
+                    <p>At JpGems, your satisfaction is our top priority. Whether you've recently purchased a gemstone, visited our showroom, or interacted with our team, we'd love to hear about your experience. Your feedback helps us continuously improve our services and maintain the highest standards in the industry.</p>
+                </div>
+
+                <div class="feedback-grid">
+                    <!-- Feedback Form -->
+                    <div class="feedback-form-section">
+                        <h3>Share Your Experience</h3>
+                        <form class="feedback-form" id="feedbackForm">
+                            <div class="form-group">
+                                <label for="customerName">Your Name *</label>
+                                <input type="text" id="customerName" name="customerName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="customerEmail">Email Address *</label>
+                                <input type="email" id="customerEmail" name="customerEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="orderNumber">Order Number (if applicable)</label>
+                                <input type="text" id="orderNumber" name="orderNumber" placeholder="e.g., JG2024-001234">
+                            </div>
+                            <div class="form-group">
+                                <label for="experienceType">Type of Experience *</label>
+                                <select id="experienceType" name="experienceType" required>
+                                    <option value="">Select experience type</option>
+                                    <option value="purchase">Recent Purchase</option>
+                                    <option value="showroom">Showroom Visit</option>
+                                    <option value="online">Online Experience</option>
+                                    <option value="customer-service">Customer Service</option>
+                                    <option value="consultation">Consultation</option>
+                                    <option value="custom-order">Custom Order</option>
+                                    <option value="general">General Experience</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Overall Rating -->
+                            <div class="form-group">
+                                <label>Overall Rating *</label>
+                                <div class="rating-input">
+                                    <input type="radio" id="rating5" name="overallRating" value="5" required>
+                                    <label for="rating5"><i class="fas fa-star"></i></label>
+                                    <input type="radio" id="rating4" name="overallRating" value="4">
+                                    <label for="rating4"><i class="fas fa-star"></i></label>
+                                    <input type="radio" id="rating3" name="overallRating" value="3">
+                                    <label for="rating3"><i class="fas fa-star"></i></label>
+                                    <input type="radio" id="rating2" name="overallRating" value="2">
+                                    <label for="rating2"><i class="fas fa-star"></i></label>
+                                    <input type="radio" id="rating1" name="overallRating" value="1">
+                                    <label for="rating1"><i class="fas fa-star"></i></label>
+                                    <span class="rating-text">Excellent</span>
+                                </div>
+                            </div>
+
+                            <!-- Specific Ratings -->
+                            <div class="ratings-grid">
+                                <div class="rating-category">
+                                    <label>Product Quality</label>
+                                    <div class="rating-stars" data-category="quality">
+                                        <i class="fas fa-star" data-rating="1"></i>
+                                        <i class="fas fa-star" data-rating="2"></i>
+                                        <i class="fas fa-star" data-rating="3"></i>
+                                        <i class="fas fa-star" data-rating="4"></i>
+                                        <i class="fas fa-star" data-rating="5"></i>
+                                    </div>
+                                    <input type="hidden" name="qualityRating" id="qualityRating">
+                                </div>
+                                <div class="rating-category">
+                                    <label>Customer Service</label>
+                                    <div class="rating-stars" data-category="service">
+                                        <i class="fas fa-star" data-rating="1"></i>
+                                        <i class="fas fa-star" data-rating="2"></i>
+                                        <i class="fas fa-star" data-rating="3"></i>
+                                        <i class="fas fa-star" data-rating="4"></i>
+                                        <i class="fas fa-star" data-rating="5"></i>
+                                    </div>
+                                    <input type="hidden" name="serviceRating" id="serviceRating">
+                                </div>
+                                <div class="rating-category">
+                                    <label>Value for Money</label>
+                                    <div class="rating-stars" data-category="value">
+                                        <i class="fas fa-star" data-rating="1"></i>
+                                        <i class="fas fa-star" data-rating="2"></i>
+                                        <i class="fas fa-star" data-rating="3"></i>
+                                        <i class="fas fa-star" data-rating="4"></i>
+                                        <i class="fas fa-star" data-rating="5"></i>
+                                    </div>
+                                    <input type="hidden" name="valueRating" id="valueRating">
+                                </div>
+                                <div class="rating-category">
+                                    <label>Delivery/Shipping</label>
+                                    <div class="rating-stars" data-category="delivery">
+                                        <i class="fas fa-star" data-rating="1"></i>
+                                        <i class="fas fa-star" data-rating="2"></i>
+                                        <i class="fas fa-star" data-rating="3"></i>
+                                        <i class="fas fa-star" data-rating="4"></i>
+                                        <i class="fas fa-star" data-rating="5"></i>
+                                    </div>
+                                    <input type="hidden" name="deliveryRating" id="deliveryRating">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="positiveExperience">What did you like most about your experience?</label>
+                                <textarea id="positiveExperience" name="positiveExperience" rows="4" placeholder="Tell us what we did well..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="improvements">How can we improve?</label>
+                                <textarea id="improvements" name="improvements" rows="4" placeholder="Share suggestions for improvement..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="additionalComments">Additional Comments</label>
+                                <textarea id="additionalComments" name="additionalComments" rows="3" placeholder="Any other thoughts or experiences you'd like to share..."></textarea>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="recommendToFriends" name="recommendToFriends">
+                                <label for="recommendToFriends">I would recommend JpGems to friends and family</label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="allowTestimonial" name="allowTestimonial">
+                                <label for="allowTestimonial">I give permission for JpGems to use my feedback as a testimonial</label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="followUp" name="followUp">
+                                <label for="followUp">I would like someone to follow up on my feedback</label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Feedback
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Testimonials -->
+                    <div class="testimonials-section">
+                        <h3>What Our Customers Say</h3>
+                        <div class="testimonials">
+                            <div class="testimonial">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>"Exceptional quality and service! The ruby I purchased exceeded my expectations. The team was knowledgeable and helped me find the perfect stone."</p>
+                                <div class="testimonial-author">
+                                    <strong>Sarah Johnson</strong>
+                                    <span>Verified Customer</span>
+                                </div>
+                            </div>
+                            <div class="testimonial">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>"Professional service from start to finish. The custom sapphire order was handled perfectly, and the final result was stunning."</p>
+                                <div class="testimonial-author">
+                                    <strong>Michael Chen</strong>
+                                    <span>Verified Customer</span>
+                                </div>
+                            </div>
+                            <div class="testimonial">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>"Visited their showroom and was impressed by their extensive collection. The staff was friendly and their expertise is evident."</p>
+                                <div class="testimonial-author">
+                                    <strong>Emma Davis</strong>
+                                    <span>Verified Customer</span>
+                                </div>
+                            </div>
+                            <div class="testimonial">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>"Outstanding customer service! They helped me understand the certification process and made sure I was completely satisfied with my purchase."</p>
+                                <div class="testimonial-author">
+                                    <strong>David Wilson</strong>
+                                    <span>Verified Customer</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="customer-stats">
+                            <h4>Customer Satisfaction</h4>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-number">98%</div>
+                                    <div class="stat-label">Customer Satisfaction</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">4.9</div>
+                                    <div class="stat-label">Average Rating</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">95%</div>
+                                    <div class="stat-label">Would Recommend</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">2,500+</div>
+                                    <div class="stat-label">Happy Customers</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alternative Feedback Methods -->
+                        <div class="alternative-feedback">
+                            <h4>Other Ways to Share Feedback</h4>
+                            <div class="feedback-methods">
+                                <div class="feedback-method">
+                                    <i class="fab fa-google"></i>
+                                    <div>
+                                        <h5>Google Reviews</h5>
+                                        <p>Leave a review on our Google Business page</p>
+                                    </div>
+                                </div>
+                                <div class="feedback-method">
+                                    <i class="fab fa-facebook"></i>
+                                    <div>
+                                        <h5>Facebook</h5>
+                                        <p>Share your experience on our Facebook page</p>
+                                    </div>
+                                </div>
+                                <div class="feedback-method">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <h5>Phone Feedback</h5>
+                                        <p>Call us at +1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                <div class="feedback-method">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <h5>Email</h5>
+                                        <p>Send feedback to feedback@jpgems.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<!-- Footer -->
+<footer>
+  <!-- Footer Top Bar -->
+  <div class="footer-top-bar">
+    <div class="footer-top-content">
+      <div class="footer-brand">
+        <h2>JP Gems</h2>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><img src="images/fb.png" alt="Facebook"></a>
+        <a href="#" class="social-icon"><img src="images/ins.jpg" alt="Instagram"></a>
+        <a href="#" class="social-icon"><img src="images/whatsapp.jpg" alt="WhatsApp"></a>
+        <a href="#" class="social-icon"><img src="images/youtube.png" alt="YouTube"></a>
+        <a href="#" class="social-icon"><img src="images/tiktok.png" alt="TikTok"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-sections-row">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Gemstones</h3>
+        <ul>
+          <li><a href="html/blue-sapphires.html">Blue Sapphires</a></li>
+          <li><a href="html/ruby.html">Ruby</a></li>
+          <li><a href="html/emerald.html">Emerald</a></li>
+          <li><a href="html/diamonds.html">Diamonds</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul class="contact-info">
+          <li><i class="fas fa-phone"></i> +94 77 123 4567</li>
+          <li><a href="mailto:info@jpgems.lk"><i class="fas fa-envelope"></i> info@jpgems.lk</a></li>
+          <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+        </ul>
+      </div>
+      
+      <div class="footer-logo-section">
+        <img src="images/lg.png" alt="JP Gems Logo">
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2025 JP Gems. All rights reserved.</p>
+  </div>
+</footer>
+
+    <script src="js/main-script.js"></script>
+</body>
+</html>
