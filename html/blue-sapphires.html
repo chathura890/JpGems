@@ -85,7 +85,7 @@
 
 <!-- Hero Section for Category -->
 <section class="hero" style="height: 50vh;">
-  <img src="../images/blue-sapphires.jpg" class="active" alt="Blue Sapphire">
+  <img src="https://images.unsplash.com/photo-1611955167811-4711904bb9f8?auto=format&fit=crop&w=1920&q=80" class="active" alt="Blue Sapphire">
 </section>
 
 <!-- Products Section -->
@@ -96,8 +96,186 @@
   </div>
 </section>
 
-<!-- Include the JavaScript -->
-<script src="../js/main-script.js"></script>
+<!-- Category-specific JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadBlueSapphireProducts();
+    setupMobileMenu();
+  });
+
+  function loadBlueSapphireProducts() {
+    const productGrid = document.getElementById('productGrid');
+    
+    // Blue Sapphire specific products with unique images
+    const blueSapphireImages = [
+      'https://images.unsplash.com/photo-1611955167811-4711904bb9f8?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1583319728447-f7fbbc67b2df?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1564053489984-317bbd824340?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1583319728447-f7fbbc67b2df?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1611652022419-a9419f74343a?auto=format&fit=crop&w=800&q=80'
+    ];
+
+    const products = [
+      {
+        name: 'Ceylon Blue Sapphire Premium',
+        desc: 'Exceptional quality Ceylon blue sapphire with vivid cornflower blue color and excellent clarity.',
+        price: '$2,500',
+        rating: 4.9,
+        weight: '3.45 carats',
+        origin: 'Sri Lanka',
+        inStock: true
+      },
+      {
+        name: 'Royal Blue Sapphire',
+        desc: 'Stunning royal blue sapphire with deep saturation and excellent brilliance.',
+        price: '$1,850',
+        rating: 4.8,
+        weight: '2.80 carats',
+        origin: 'Sri Lanka',
+        inStock: true
+      },
+      {
+        name: 'Kashmir Blue Sapphire',
+        desc: 'Rare Kashmir sapphire with velvety blue color and exceptional clarity.',
+        price: '$5,200',
+        rating: 5.0,
+        weight: '4.15 carats',
+        origin: 'Kashmir',
+        inStock: false
+      },
+      {
+        name: 'Cornflower Blue Sapphire',
+        desc: 'Classic cornflower blue Ceylon sapphire with perfect saturation.',
+        price: '$2,100',
+        rating: 4.7,
+        weight: '3.20 carats',
+        origin: 'Sri Lanka',
+        inStock: true
+      },
+      {
+        name: 'Madagascar Blue Sapphire',
+        desc: 'Beautiful Madagascar blue sapphire with intense color.',
+        price: '$1,650',
+        rating: 4.6,
+        weight: '2.95 carats',
+        origin: 'Madagascar',
+        inStock: true
+      },
+      {
+        name: 'Burmese Blue Sapphire',
+        desc: 'Rare Burmese blue sapphire with excellent clarity and color.',
+        price: '$3,400',
+        rating: 4.9,
+        weight: '3.85 carats',
+        origin: 'Myanmar',
+        inStock: true
+      },
+      {
+        name: 'Australian Blue Sapphire',
+        desc: 'Deep blue Australian sapphire with exceptional brilliance.',
+        price: '$1,450',
+        rating: 4.5,
+        weight: '2.65 carats',
+        origin: 'Australia',
+        inStock: true
+      },
+      {
+        name: 'Teal Blue Sapphire',
+        desc: 'Unique teal blue sapphire with beautiful color variations.',
+        price: '$1,280',
+        rating: 4.4,
+        weight: '3.10 carats',
+        origin: 'Montana',
+        inStock: true
+      },
+      {
+        name: 'Navy Blue Sapphire',
+        desc: 'Deep navy blue sapphire perfect for elegant jewelry.',
+        price: '$1,950',
+        rating: 4.7,
+        weight: '3.35 carats',
+        origin: 'Sri Lanka',
+        inStock: true
+      },
+      {
+        name: 'Peacock Blue Sapphire',
+        desc: 'Stunning peacock blue sapphire with greenish-blue hues.',
+        price: '$1,580',
+        rating: 4.6,
+        weight: '2.85 carats',
+        origin: 'Thailand',
+        inStock: true
+      },
+      {
+        name: 'Vivid Blue Sapphire',
+        desc: 'Exceptionally vivid blue sapphire with outstanding color saturation.',
+        price: '$2,800',
+        rating: 4.8,
+        weight: '3.60 carats',
+        origin: 'Sri Lanka',
+        inStock: true
+      },
+      {
+        name: 'Star Blue Sapphire',
+        desc: 'Rare blue sapphire displaying perfect 6-ray star asterism.',
+        price: '$3,200',
+        rating: 4.9,
+        weight: '5.25 carats',
+        origin: 'Sri Lanka',
+        inStock: false
+      }
+    ];
+
+    products.forEach((product, index) => {
+      const div = document.createElement('div');
+      div.className = 'product-card';
+      div.innerHTML = `
+        <img src="${blueSapphireImages[index]}" alt="${product.name}" loading="lazy">
+        <h3>${product.name}</h3>
+        <p>${product.desc}</p>
+        <div class="product-details" style="display: flex; justify-content: space-between; margin: 10px 0; font-size: 0.9rem; color: #666;">
+          <span><i class="fas fa-gem"></i> ${product.weight}</span>
+          <span><i class="fas fa-star" style="color: #ffd700;"></i> ${product.rating}</span>
+        </div>
+        <div class="product-details" style="margin: 5px 0; font-size: 0.85rem; color: #888;">
+          <span><i class="fas fa-map-marker-alt"></i> ${product.origin}</span>
+        </div>
+        <div class="price">${product.price}</div>
+        <div class="stock-status" style="margin: 10px 0; font-size: 0.9rem; color: ${product.inStock ? '#28a745' : '#dc3545'};">
+          ${product.inStock ? '✅ In Stock' : '❌ Out of Stock'}
+        </div>
+        <button onclick="viewProduct('${product.name}')" ${!product.inStock ? 'disabled style="opacity: 0.6; cursor: not-allowed;"' : ''}>
+          <i class="fas fa-eye"></i> View Details
+        </button>
+      `;
+      productGrid.appendChild(div);
+    });
+  }
+
+  function viewProduct(productName) {
+    window.location.href = 'itemdetails.html?product=' + encodeURIComponent(productName);
+  }
+
+  function setupMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navUl = document.querySelector('nav ul');
+    if (menuToggle && navUl) {
+      menuToggle.addEventListener('click', () => {
+        navUl.classList.toggle('show');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      });
+    }
+  }
+</script>
 
 <!-- Footer -->
 <footer>
